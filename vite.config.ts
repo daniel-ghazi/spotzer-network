@@ -10,5 +10,6 @@ export default defineConfig({
     coverage: {
       provider: "istanbul",
     },
+    setupFiles: ["./vitest.setup.js"],
   },
 });
