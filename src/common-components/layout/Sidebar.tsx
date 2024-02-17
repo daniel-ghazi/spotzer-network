@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import routePaths from "../../routing/routePaths";
+import Link from "../common/Link";
 
 const Sidebar = () => {
   return (
@@ -6,22 +7,22 @@ const Sidebar = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/login" aria-label="Navigate to login page">
+            <Link to={routePaths.LOGIN} ariaLabel="Navigate to login page">
               Login
             </Link>
           </li>
           <li>
-            <Link to="/" aria-label="Navigate to home page">
+            <Link to={routePaths.HOME} ariaLabel="Navigate to home page">
               Home Page
             </Link>
           </li>
           <li>
-            <Link to="/history" aria-label="Navigate to history page">
+            <Link to={routePaths.HISTORY} ariaLabel="Navigate to history page">
               History
             </Link>
           </li>
           <li>
-            <Link to="/invoice" aria-label="Navigate to invoice page">
+            <Link to={routePaths.INVOICE} ariaLabel="Navigate to invoice page">
               Invoice
             </Link>
           </li>
