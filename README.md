@@ -4,9 +4,7 @@
 
 This project is a web portal, that enables freelance users to log in, view available tasks, assign tasks to themselves, mark tasks as complete, and view their task history along with earnings.
 
-## Live Demo
-
-Link TBA
+## [Live Demo](https://daniel-ghazi.github.io/spotzer-network/)
 
 ## Getting Started
 

@@ -6,6 +6,8 @@ import HomePage from "./pages/HomePage";
 import InvoicePage from "./pages/InvoicePage";
 import LoginPage from "./pages/LoginPage";
 
+export const baseRouterPath = "/spotzer-network";
+
 const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<App />}>
