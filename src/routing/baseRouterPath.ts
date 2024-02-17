@@ -1,3 +1,3 @@
-const baseRouterPath = "/spotzer-network";
+const baseRouterPath = "/spotzer-network/";
 
 export default baseRouterPath;
