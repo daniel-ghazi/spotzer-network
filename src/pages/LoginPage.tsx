@@ -1,30 +1,58 @@
+import { useState } from "react";
+import Input from "../components/common/Input";
+import Link from "../components/common/Link";
+import routePaths from "../routing/routePaths";
+import Button from "../components/common/Button";
+
 const LoginPage = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(username, password);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center">
-      <form className="flex flex-col items-center justify-center">
-        <input
-          type="text"
-          id="username"
+      <form
+        className="flex flex-col items-center justify-center"
+        onSubmit={handleSubmit}
+      >
+        <Input
+          name="username"
           placeholder="Enter your username"
-          className="py-1 px-2 mb-3 border border-solid border-gray-500 rounded"
+          className="mb-3"
+          value={username}
+          onChange={setUsername}
+          label={"Username"}
         />
-        <input
-          type="password"
-          id="password"
+        <Input
+          name="password"
+          type={"password"}
           placeholder="Enter your password"
-          className="py-1 px-2 mb-5 border border-solid border-gray-500 rounded"
+          className="mb-5"
+          value={password}
+          onChange={setPassword}
+          label={"Password"}
         />
-        <button
-          type="submit"
-          className="px-2 py-1 mb-5 bg-purple-800 text-white rounded"
-        >
+
+        <Button type="submit" className="mb-5">
           Login
-        </button>
+        </Button>
       </form>
 
-      <a className="text-purple-800 underline underline-offset-4" href="#">
+      <Link
+        to={routePaths.RESET_PASSWORD}
+        ariaLabel={"Navigate to reset password page"}
+        isPurpleUnderlineStyle
+        onClick={(e) => {
+          e.preventDefault();
+          alert('The "Reset Password" feature is coming soon!');
+        }}
+      >
         Reset password
-      </a>
+      </Link>
     </div>
   );
 };
