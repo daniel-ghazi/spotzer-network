@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import AppRoutes from "./routesConfig";
+import AppRoutes from "./AppRoutes";
 
 const renderRouter = (initialEntries = ["/"]) => (
   <MemoryRouter initialEntries={initialEntries}>
