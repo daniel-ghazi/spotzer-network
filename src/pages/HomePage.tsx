@@ -1,7 +1,7 @@
+import TasksTracker from "../features/TasksTracker/TasksTracker";
+
 const HomePage = () => {
-  return (
-    <div className="flex flex-col items-center justify-center">HomePage</div>
-  );
+  return <TasksTracker />;
 };
 
 export default HomePage;

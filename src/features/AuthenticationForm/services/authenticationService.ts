@@ -1,6 +1,6 @@
-import Logger from "../../../utils/Logger";
 import cookies from "../../../utils/cookies";
-import { MOCK_JWT_TOKEN, MOCK_USER } from "../mock-data/mockData";
+import Logger from "../../../utils/logger";
+import { MOCK_JWT_TOKEN, MOCK_USER } from "../mock-data/mockAuthenticationData";
 import { User } from "../models/user";
 
 class AuthenticationService {

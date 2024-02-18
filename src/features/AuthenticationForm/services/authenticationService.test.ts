@@ -1,6 +1,6 @@
 import { Mock } from "vitest";
 import cookies from "../../../utils/cookies";
-import { MOCK_JWT_TOKEN, MOCK_USER } from "../mock-data/mockData";
+import { MOCK_JWT_TOKEN, MOCK_USER } from "../mock-data/mockAuthenticationData";
 import AuthenticationService from "./authenticationService";
 
 vi.mock("../../../utils/cookies", () => ({

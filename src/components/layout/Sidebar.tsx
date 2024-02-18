@@ -3,11 +3,6 @@ import Link from "../common/Link";
 
 const links = [
   {
-    label: "Login",
-    path: ROUTE_PATHS.LOGIN,
-    ariaLabel: "Navigate to login page",
-  },
-  {
     label: "Home Page",
     path: ROUTE_PATHS.HOME,
     ariaLabel: "Navigate to home page",
@@ -26,7 +21,7 @@ const links = [
 
 const Sidebar = () => {
   return (
-    <aside aria-label="Main navigation" className="min-w-32 p-4">
+    <aside aria-label="Main navigation" className="min-w-32 p-4 border mr-8">
       <nav>
         <ul>
           {links.map((link, index) => (

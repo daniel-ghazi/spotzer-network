@@ -2,7 +2,7 @@ import AuthenticationService from "./services/authenticationService";
 import { MemoryRouter } from "react-router-dom";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import ROUTE_PATHS from "../../routing/routePaths";
-import { MOCK_JWT_TOKEN } from "./mock-data/mockData";
+import { MOCK_JWT_TOKEN } from "./mock-data/mockAuthenticationData";
 import AuthenticationForm from "./AuthenticationForm";
 import { Mock } from "vitest";
 

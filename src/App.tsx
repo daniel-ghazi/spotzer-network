@@ -12,7 +12,7 @@ function App() {
       <Header />
       <div className="mt-8 flex">
         {isPrivateRoute && <Sidebar />}
-        <main className="size-full mt-12">
+        <main className="size-full p-8 border">
           <Outlet />
         </main>
       </div>

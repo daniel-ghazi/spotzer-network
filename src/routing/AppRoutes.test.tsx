@@ -5,12 +5,15 @@ import userEvent from "@testing-library/user-event";
 import AppRoutes from "./AppRoutes";
 import useAuthentication from "../features/AuthenticationForm/hooks/useAuthentication";
 import ROUTE_PATHS from "./routePaths";
+import { TasksProvider } from "../providers/TasksProvider";
 
 vi.mock("../features/AuthenticationForm/hooks/useAuthentication");
 
 const renderRouter = (initialEntries = ["/"]) => (
   <MemoryRouter initialEntries={initialEntries}>
-    <AppRoutes />
+    <TasksProvider>
+      <AppRoutes />
+    </TasksProvider>
   </MemoryRouter>
 );
 

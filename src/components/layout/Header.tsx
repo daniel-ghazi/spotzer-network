@@ -8,7 +8,7 @@ const Header = () => {
   const isLoginPage = location.pathname === ROUTE_PATHS.LOGIN;
 
   return (
-    <header>
+    <header className="border">
       <Link
         to={ROUTE_PATHS.HOME}
         aria-label="Go to home page"
