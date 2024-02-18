@@ -44,7 +44,7 @@ const TaskCard = ({ task }: TasksColumnProps) => {
         <span className="font-bold">Status:</span> {task.status}
       </div>
       <div>
-        <span className="font-bold">Amount:</span> {task.amount}
+        <span className="font-bold">Amount:</span> ${task.amount}
       </div>
       <div>
         <span className="font-bold">Assignee:</span> {task.assignee}

@@ -4,5 +4,5 @@ export interface Task {
   description: string;
   status: "Available" | "In Progress" | "Done";
   assignee: string | null;
-  amount: string;
+  amount: number;
 }

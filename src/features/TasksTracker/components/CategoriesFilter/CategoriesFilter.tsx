@@ -17,7 +17,6 @@ const CategoriesFilter = () => {
 
   return (
     <div className="flex flex-col items-center mb-8">
-      <div>Tasks filters</div>
       <div className="flex justify-center mt-2 gap-4">
         {categories.map((category) => (
           <FilterButton
