@@ -58,3 +58,34 @@ To run lint, use the following command:
 ```
  npm run lint
 ```
+
+## Deploying
+
+Deployment is implemented with Github Pages and `gh-pages` library.
+
+Firstly, run tests and lint to verify quality:
+
+```
+ npm test
+ npm run list
+```
+
+If no problems found, build project:
+
+```
+ npm run build
+```
+
+Then run preview command and check production build locally:
+
+```
+ npm run preview
+```
+
+If no problems found run:
+
+```
+ npm run deploy
+```
+
+It would deploy build to github and it would be automatically hosted at `https://daniel-ghazi.github.io/spotzer-network` in couple of minutes.
