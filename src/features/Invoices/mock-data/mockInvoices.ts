@@ -1,4 +1,4 @@
-const INVOICES_MOCK = [
+const MOCK_INVOICES = [
   {
     year: "2024",
     month: 1,
@@ -16,4 +16,4 @@ const INVOICES_MOCK = [
   },
 ];
 
-export default INVOICES_MOCK;
+export default MOCK_INVOICES;

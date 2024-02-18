@@ -9,6 +9,8 @@ import { Task } from "../features/TasksTracker/model/task";
 import Logger from "../utils/logger";
 import MOCK_TASKS from "../features/TasksTracker/mock-data/mockTasks";
 import TasksService from "../features/TasksTracker/services/tasksService";
+import HistoryService from "../features/History/services/historyService";
+import { HistoryEntry } from "../features/History/model/historyEntry";
 
 interface TasksContextType {
   tasks: Task[];
@@ -58,6 +60,14 @@ const TasksProvider = ({ children }: TasksProviderProps) => {
       await TasksService.updateAssignee(taskId, newAssignee);
       const updatedTasks = await TasksService.getTasks();
 
+      const historyEntry: HistoryEntry = {
+        taskId: taskId,
+        date: new Date(),
+        newStatus:
+          updatedTasks.find((task) => task.id === taskId)?.status || "",
+      };
+      await HistoryService.addHistoryEntry(historyEntry);
+
       setTasks(updatedTasks);
     } catch (error) {
       Logger.errorMessage("An error occurred while updating assignee.", {
@@ -71,6 +81,14 @@ const TasksProvider = ({ children }: TasksProviderProps) => {
     try {
       await TasksService.completeTask(taskId);
       const updatedTasks = await TasksService.getTasks();
+
+      const historyEntry: HistoryEntry = {
+        taskId: taskId,
+        date: new Date(),
+        newStatus:
+          updatedTasks.find((task) => task.id === taskId)?.status || "",
+      };
+      await HistoryService.addHistoryEntry(historyEntry);
 
       setTasks(updatedTasks);
     } catch (error) {

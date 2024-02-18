@@ -4,14 +4,14 @@ import { useTasks } from "../../providers/TasksProvider";
 import { MOCK_USER } from "../AuthenticationForm/mock-data/mockAuthenticationData";
 import InvoicesHeader from "./components/InvoicesHeader";
 import InvoicesTable from "./components/InvoicesTable";
-import INVOICES_MOCK from "./mock-data/mockInvoices";
+import MOCK_INVOICES from "./mock-data/mockInvoices";
 
 const Invoices = () => {
   const { tasks } = useTasks();
   const { selectedMonth, handleMonthChange, selectedYear, handleYearChange } =
     useDateFilters();
 
-  const invoices = INVOICES_MOCK;
+  const invoices = MOCK_INVOICES;
 
   const calculateDoneTasksValue = () => {
     return tasks.reduce((acc, task) => {

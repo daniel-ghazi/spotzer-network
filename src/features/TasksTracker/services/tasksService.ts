@@ -3,7 +3,7 @@ import MOCK_TASKS from "../mock-data/mockTasks";
 import { Task } from "../model/task";
 
 class TasksService {
-  static LOCAL_STORAGE_KEY = "tasksData";
+  private static LOCAL_STORAGE_KEY = "tasksData";
 
   static async getTasks(): Promise<Array<Task>> {
     return new Promise((resolve, reject) => {
@@ -29,6 +29,7 @@ class TasksService {
 
   static saveTasks(tasks: Array<Task>): Promise<Array<Task>> {
     return new Promise((resolve, reject) => {
+      // imitating server call delay
       setTimeout(() => {
         try {
           localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(tasks));

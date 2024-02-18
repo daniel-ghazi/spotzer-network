@@ -35,10 +35,13 @@ const TaskCard = ({ task }: TasksColumnProps) => {
   return (
     <div className="p-4 border border-black rounded">
       <div>
-        <span className="font-bold">Task name:</span> {task.name}{" "}
+        <span className="font-bold">Id:</span> {task.id}
       </div>
       <div>
-        <span className="font-bold">Description:</span> {task.description}{" "}
+        <span className="font-bold">Task name:</span> {task.name}
+      </div>
+      <div>
+        <span className="font-bold">Description:</span> {task.description}
       </div>
       <div>
         <span className="font-bold">Status:</span> {task.status}

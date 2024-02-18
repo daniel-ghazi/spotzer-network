@@ -1,7 +1,7 @@
+import History from "../features/History/History";
+
 const HistoryPage = () => {
-  return (
-    <div className="flex flex-col items-center justify-center">History</div>
-  );
+  return <History />;
 };
 
 export default HistoryPage;
