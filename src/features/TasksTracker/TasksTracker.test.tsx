@@ -43,6 +43,7 @@ describe("TasksTracker", () => {
     const assignButton = await screen.findByRole("button", {
       name: /assign/i,
     });
+
     await act(async () => {
       fireEvent.click(assignButton);
     });
@@ -51,6 +52,7 @@ describe("TasksTracker", () => {
       const assignee = screen.queryByText(MOCK_USER.username);
 
       expect(assignButton).not.toBeInTheDocument();
+
       expect(assignee).toBeInTheDocument();
     });
   });
@@ -69,7 +71,6 @@ describe("TasksTracker", () => {
       const status = screen.queryAllByText("Done");
 
       expect(completeButton).not.toBeInTheDocument();
-      screen.debug();
       expect(status.length).toBe(3);
     });
   });

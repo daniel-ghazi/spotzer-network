@@ -39,7 +39,7 @@ describe("App routing", () => {
     render(renderRouter());
     await user.click(screen.getByText(/invoice/i));
 
-    expect(screen.getByText(/invoices/i)).toBeInTheDocument();
+    expect(screen.getByText(/download/i)).toBeInTheDocument();
   });
 
   it("should be redirected to login page if currently at private page while being unauthenticated", async () => {
