@@ -1,6 +1,6 @@
 import DateFilters from "../../components/common/DateFilters/DateFilters";
 import useDateFilters from "../../components/common/DateFilters/useDateFilters";
-import { useTasks } from "../../providers/TasksProvider";
+import { useTasks } from "../../hooks/useTasks";
 import { MOCK_USER } from "../AuthenticationForm/mock-data/mockAuthenticationData";
 import InvoicesHeader from "./components/InvoicesHeader";
 import InvoicesTable from "./components/InvoicesTable";

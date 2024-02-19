@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import Button from "../../../../components/common/Button";
-import { useTasks } from "../../../../providers/TasksProvider";
+import { useTasks } from "../../../../hooks/useTasks";
 
 const CategoriesFilter = () => {
   const { statusFilter, setStatusFilter } = useTasks();

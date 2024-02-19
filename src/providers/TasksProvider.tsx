@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useState,
-  ReactNode,
-  useContext,
-  useEffect,
-} from "react";
+import { createContext, useState, ReactNode, useEffect } from "react";
 import { Task } from "../features/TasksTracker/model/task";
 import Logger from "../utils/logger";
 import MOCK_TASKS from "../features/TasksTracker/mock-data/mockTasks";
@@ -21,7 +15,9 @@ interface TasksContextType {
   setStatusFilter: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const TasksContext = createContext<TasksContextType | undefined>(undefined);
+export const TasksContext = createContext<TasksContextType | undefined>(
+  undefined
+);
 
 interface TasksProviderProps {
   children: ReactNode;
@@ -59,6 +55,7 @@ const TasksProvider = ({ children }: TasksProviderProps) => {
     try {
       await TasksService.updateAssignee(taskId, newAssignee);
       const updatedTasks = await TasksService.getTasks();
+      setTasks(updatedTasks);
 
       const historyEntry: HistoryEntry = {
         taskId: taskId,
@@ -67,8 +64,6 @@ const TasksProvider = ({ children }: TasksProviderProps) => {
           updatedTasks.find((task) => task.id === taskId)?.status || "",
       };
       await HistoryService.addHistoryEntry(historyEntry);
-
-      setTasks(updatedTasks);
     } catch (error) {
       Logger.errorMessage("An error occurred while updating assignee.", {
         taskId,
@@ -81,6 +76,7 @@ const TasksProvider = ({ children }: TasksProviderProps) => {
     try {
       await TasksService.completeTask(taskId);
       const updatedTasks = await TasksService.getTasks();
+      setTasks(updatedTasks);
 
       const historyEntry: HistoryEntry = {
         taskId: taskId,
@@ -89,8 +85,6 @@ const TasksProvider = ({ children }: TasksProviderProps) => {
           updatedTasks.find((task) => task.id === taskId)?.status || "",
       };
       await HistoryService.addHistoryEntry(historyEntry);
-
-      setTasks(updatedTasks);
     } catch (error) {
       Logger.errorMessage("An error occurred while completing task.", {
         taskId,
@@ -123,14 +117,4 @@ const TasksProvider = ({ children }: TasksProviderProps) => {
   );
 };
 
-function useTasks() {
-  const context = useContext(TasksContext);
-
-  if (!context) {
-    throw new Error("useTasks must be used within a TasksProvider");
-  }
-
-  return context;
-}
-
-export { TasksProvider, useTasks };
+export { TasksProvider };

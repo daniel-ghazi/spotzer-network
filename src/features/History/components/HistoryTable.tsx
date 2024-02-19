@@ -10,7 +10,7 @@ const HistoryTable = ({ historyEntries }: HistoryTableProps) => {
       {historyEntries.map((entry, index) => (
         <div
           key={index}
-          className="w-full border-b dark:bg-gray-800 dark:border-gray-700 text-white p-4"
+          className="w-full border-b dark:bg-gray-800 dark:border-gray-700 dark:text-white p-4"
         >
           {entry.date.toDateString()} - Task {entry.taskId} status changed to{" "}
           {entry.newStatus}

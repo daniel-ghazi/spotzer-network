@@ -34,7 +34,7 @@ interface RowProps {
 
 const Row = ({ invoice }: RowProps) => {
   return (
-    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+    <tr className="bg-white border-b text-black dark:text-white dark:bg-gray-800 dark:border-gray-700">
       <td className="py-4 px-6">
         {MONTHS[invoice.month]} {invoice.year}
       </td>

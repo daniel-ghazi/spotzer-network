@@ -1,5 +1,5 @@
 import Button from "../../../../components/common/Button";
-import { useTasks } from "../../../../providers/TasksProvider";
+import { useTasks } from "../../../../hooks/useTasks";
 import TasksColumn from "./TasksColumn/TasksColumn";
 
 const TasksTable = () => {

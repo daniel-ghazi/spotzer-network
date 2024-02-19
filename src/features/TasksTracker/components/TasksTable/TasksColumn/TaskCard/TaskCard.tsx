@@ -1,5 +1,5 @@
 import Button from "../../../../../../components/common/Button";
-import { useTasks } from "../../../../../../providers/TasksProvider";
+import { useTasks } from "../../../../../../hooks/useTasks";
 import { MOCK_USER } from "../../../../../AuthenticationForm/mock-data/mockAuthenticationData";
 import { Task } from "../../../../model/task";
 
