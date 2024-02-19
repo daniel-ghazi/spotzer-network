@@ -3,6 +3,7 @@ import Link from "../../components/common/Link";
 import ROUTE_PATHS from "../../routing/routePaths";
 import Button from "../../components/common/Button";
 import useAuthentication from "./hooks/useAuthenticationForm";
+import { MOCK_USER } from "./mock-data/mockAuthenticationData";
 
 const AuthenticationForm = () => {
   const {
@@ -17,6 +18,11 @@ const AuthenticationForm = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
+      <div className="mb-8 text-gray-400">
+        test user credentials: <br />
+        {MOCK_USER.username} / {MOCK_USER.password}
+      </div>
+
       <form
         className="flex flex-col items-center justify-center"
         onSubmit={handleLogin}
