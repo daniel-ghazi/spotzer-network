@@ -123,21 +123,21 @@ It would deploy build to GitHub and it would be automatically hosted at `https:/
 
 ### Technologies
 
-- React: strong in component-based architecture, modular and reusable UI components.
-- TypeScript: saving from myriad of types bugs and makes code safe and easier to work with (self-documenting)
-- Tailwind CSS: helps with rapid UI development while keeping enterprise-level quality for responsiveness and customization.
-- Context API: Used for state management to share global state across components without prop drilling. Native and lightweight of small-to-mid-sized apps.
-- Vite: modern, powerful and fast bundler with easy setup. Great choice for new projects, that do not want to fight Webpack configs.
-- Vitest + React Testing Library: Vite’s testing library, which is seamlessly integrated into it, and has Jest’s level of unit testing capabilities. RTL adds ability to test components in a user-eccentric way, increasing quality and accessibility.
-- React Router: routing capabilities provider, de-factor industry standard for React.
-- gh-pages + Github Pages: quick and easy deployment choice for static websites.
+- **React**: strong in component-based architecture, modular and reusable UI components.
+- **TypeScript**: saving from myriad of types bugs and makes code safe and easier to work with (self-documenting)
+- **Tailwind CSS**: helps with rapid UI development while keeping enterprise-level quality for responsiveness and customization.
+- **Context API**: Used for state management to share global state across components without prop drilling. Native and lightweight of small-to-mid-sized apps.
+- **Vite**: modern, powerful and fast bundler with easy setup. Great choice for new projects, that do not want to fight Webpack configs.
+- **Vitest + React Testing Library**: Vite’s testing library, which is seamlessly integrated into it, and has Jest’s level of unit testing capabilities. RTL adds ability to test components in a user-eccentric way, increasing quality and accessibility.
+- **React Router**: routing capabilities provider, de-factor industry standard for React.
+- **gh-pages + Github Pages**: quick and easy deployment choice for static websites.
 
 ### Architecture
 
-- API Imitation: To emulate interaction with a backend service, the application leverages local storage as a persistent data store. Initial data is seeded from predefined mock objects. As users interact with the application, their actions dynamically update the stored data, reflecting changes in real-time and maintaining state across sessions. Delay is simulated by setTimeouts.
-- Global State Management: The application adopts the React Context API coupled with the Provider pattern to manage and distribute application state globally. This design choice eliminates the complexity and prop-drilling associated with passing data through multiple component layers. Specifically, the useTasks hook encapsulates context usage and simplifies API for other part of App. This approach not only simplifies state management but also enhances component modularity and reusability, laying a foundation for scalable and maintainable code.
-- Authentication: simulated via cookies. Credentials are checked against mocked data and fake JWT token is placed in cookies after successful login. If token is deleted/expired, then all pages will redirect to Login page. With real authentication, token cookie should be set by server with attributes Secure, HttpOnly, and SameSite=Lax to prevent XSS and CSRF attacks.
-- Folders structure. The feature-based structure was chosen for its strength in modularity and reusability of components. Notable folders:
+- **API Imitation**: To emulate interaction with a backend service, the application leverages local storage as a persistent data store. Initial data is seeded from predefined mock objects. As users interact with the application, their actions dynamically update the stored data, reflecting changes in real-time and maintaining state across sessions. Delay is simulated by setTimeouts.
+- **Global State Management**: The application adopts the React Context API coupled with the Provider pattern to manage and distribute application state globally. This design choice eliminates the complexity and prop-drilling associated with passing data through multiple component layers. Specifically, the useTasks hook encapsulates context usage and simplifies API for other part of App. This approach not only simplifies state management but also enhances component modularity and reusability, laying a foundation for scalable and maintainable code.
+- **Authentication**: simulated via cookies. Credentials are checked against mocked data and fake JWT token is placed in cookies after successful login. If token is deleted/expired, then all pages will redirect to Login page. With real authentication, token cookie should be set by server with attributes Secure, HttpOnly, and SameSite=Lax to prevent XSS and CSRF attacks.
+- **Folders structure**. The feature-based structure was chosen for its strength in modularity and reusability of components. Notable folders:
   - _assets_: Contains static assets like images.
   - _components_: Contains all common components (Button, Link, etc.) and layouts (Header, Sidebar, etc.).
   - _pages_: Contains top-level component for each page, helping quickly navigate to searched module.
@@ -150,29 +150,29 @@ It would deploy build to GitHub and it would be automatically hosted at `https:/
     - _services_: Contains classes for fetching data and simulating API calls.
     - _model_: Contains data models used in feature,
     - _hooks_: Contains feature-specific hooks for logic reusability and abstraction,
-  - Tests a spread throughout project with name pattern _\*.test.tsx_, placed in the same folder as tested element for easier coupling.
+- **Tests**: spread throughout project with name pattern _\*.test.tsx_, placed in the same folder as tested element for easier coupling.
 
 ## Challenges and Solutions
 
-- Challenge: GitHub Pages is using its own 404 page by default, ignoring project-specific _ErrorPage.tsx_ component.
-- Reason: it was happening, because GitHub checks for 404.html file and uses own if custom is not provided.
-- Solution: adding "cp dist/index.html dist/404.html" to build script. This trick would create a copy of index.html as 404.html page. Github Pages would see, that there is 404.html file and would return control to App router. Router would properly navigate user to _ErrorPage.tsx_ component, showing custom error page.
+- **Challenge**: GitHub Pages is using its own 404 page by default, ignoring project-specific _ErrorPage.tsx_ component.
+- **Reason**: it was happening, because GitHub checks for 404.html file and uses own if custom is not provided.
+- **Solution**: adding "cp dist/index.html dist/404.html" to build script. This trick would create a copy of index.html as 404.html page. Github Pages would see, that there is 404.html file and would return control to App router. Router would properly navigate user to _ErrorPage.tsx_ component, showing custom error page.
 
 ## Future Improvements
 
-- Security: when implementing real authentication, token cookie should be set by server with attributes Secure, HttpOnly, and SameSite=Lax to prevent XSS and CSRF attacks.
-- Layout: different layout components should be used for authenticated and not authenticated users, to prevent usage of location comparisons, as this solution is hard to maintain
-- User Context: create context for logged user and serve it globally instead of using mock data
-- Performance: Optimize SVGs with SVGO and implement caching strategies using libraries like TanStack Query.
-- CI/CD: setup proper CI/CD, automatically running tests, linter check, build and
+- **Security**: when implementing real authentication, token cookie should be set by server with attributes Secure, HttpOnly, and SameSite=Lax to prevent XSS and CSRF attacks.
+- **Layout**: different layout components should be used for authenticated and not authenticated users, to prevent usage of location comparisons, as this solution is hard to maintain
+- **User Context**: create context for logged user and serve it globally instead of using mock data
+- **Performance**: Optimize SVGs with SVGO and implement caching strategies using libraries like TanStack Query.
+- **CI/CD**: setup proper CI/CD, automatically running tests, linter check, build and
   deployment
-- Logging: implement Logger with Sentry/other error tracker
-- Localization: Implement i18n to support multiple languages and move all strings to strings.js.
-- Accessibility: Further enhance accessibility features following WCAG guidelines.
-- Features:
+- **Logging**: implement Logger with Sentry/other error tracker
+- **Localization**: Implement i18n to support multiple languages and move all strings to strings.js.
+- **Accessibility**: Further enhance accessibility features following WCAG guidelines.
+- **Features**:
   - implement reset passwords page
   - implement download invoice button
   - make DateFilters empty by default
-- Testing:
+- **Testing**:
   - fill left tests stubs with real tests
   - fix warning in TasksTracker.test.tsx and AuthenticationForm.test.tsx by mocking async functions of TasksProvider, which cause the issue
