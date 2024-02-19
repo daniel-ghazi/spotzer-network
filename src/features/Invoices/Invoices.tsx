@@ -7,14 +7,14 @@ import InvoicesTable from "./components/InvoicesTable";
 import MOCK_INVOICES from "./mock-data/mockInvoices";
 
 const Invoices = () => {
-  const { tasks } = useTasks();
+  const { allTasks } = useTasks();
   const { selectedMonth, handleMonthChange, selectedYear, handleYearChange } =
     useDateFilters();
 
   const invoices = MOCK_INVOICES;
 
   const calculateDoneTasksValue = () => {
-    return tasks.reduce((acc, task) => {
+    return allTasks.reduce((acc, task) => {
       if (task.status === "Done" && task.assignee === MOCK_USER.username) {
         return acc + task.amount;
       } else {

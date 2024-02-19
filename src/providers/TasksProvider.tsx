@@ -7,7 +7,8 @@ import HistoryService from "../features/History/services/historyService";
 import { HistoryEntry } from "../features/History/model/historyEntry";
 
 interface TasksContextType {
-  tasks: Task[];
+  allTasks: Task[];
+  filteredTasks: Task[];
   resetTasks: () => void;
   updateAssignee: (taskId: number, newAssignee: string) => void;
   completeTask: (taskId: number) => void;
@@ -104,7 +105,8 @@ const TasksProvider = ({ children }: TasksProviderProps) => {
   return (
     <TasksContext.Provider
       value={{
-        tasks: filteredTasks,
+        allTasks: tasks,
+        filteredTasks,
         resetTasks,
         updateAssignee,
         completeTask,
